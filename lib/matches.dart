@@ -1,7 +1,7 @@
-class Results {
+class Matches {
     String competitionName;
     String utcDate ; 
     String stage ; 
 
-  Results();
+  Matches();
 }

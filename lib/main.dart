@@ -1,15 +1,15 @@
 //import 'dart:js';
 
 import 'package:flutter/material.dart';
-//import 'package:football_app/results.dart';
+import 'package:football_app/results.dart';
 
 void main() {
   runApp(MaterialApp(
     //home :Home(),
-    initialRoute: '/',
+    initialRoute: '/second',
     routes: {
       '/': (context) => Home(),
-      //'/second' : (context) => Results(), 
+      '/second' : (context) => Matches(), 
           },
   ));
 }
