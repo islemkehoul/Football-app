@@ -14,38 +14,62 @@ class Allmatches extends StatefulWidget {
 }
 
 class _AllmatchesState extends State<Allmatches>  {
-  List<Matches> _matches ; 
+  List<Match> _matches ; 
 
 @override
   void initState(){
 
     super.initState();
-    Service.allmatches().then((matches)  {
-      _matches = matches ;
-    } );}
+    /*Service.allmatches().then((matches)  {
+      
+          _matches = matches ;
+      
+    } );*/
+   }
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body : ListView.builder(
-        itemBuilder: (context, index){
-          Matches obj = _matches[index];
-          return Center(
-            child: Card(
-              child: Column(
-                children: <Widget>[
-                  ListTile(
-                    title: Text(obj.filters.toString()),
-                  ),
-                ]
-              ),
-              
+     
+    return FutureBuilder(
+          future : Service.allmatches(),
+          builder : (context , snapshot)  {
+            if(snapshot.connectionState== ConnectionState.done){
+              _matches=snapshot.data;
+              return Scaffold(
+        body : ListView.builder(
+          itemCount: _matches.length,
+          itemBuilder: (context, index){
+            Match obj = _matches[index];
 
-            ),
-          );
+            return Center(
+              child: Card(
+                child: Column(
+                  children: <Widget>[
+                    ListTile(
+                      title: Text(obj.competition.area.name.toString()),
+                    ),
+                  ]
+                ),
+                
+
+              ),
+            );
+        
+          })
       
-        })
-    
+      );
+            }
+            return Card(
+              child: Column(
+                  children: <Widget>[
+                    ListTile(
+                      title: Text("zebi"),
+                    ),
+                  ]
+                ),
+            );
+
+          }   
     );
-  }
-}
+  
+  }}

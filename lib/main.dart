@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:football_app/allmatches.dart';
 //import 'package:football_app/matchesmodel.dart';
 //import 'package:football_app/matches.dart';
-import 'package:football_app/service.dart';
+//import 'package:football_app/service.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -12,7 +12,7 @@ void main() {
     initialRoute: '/third',
     routes: {
       '/': (context) => Home(),
-      '/second' : (context) => Service(), 
+      //'/second' : (context) => Service(), 
       '/third': (context) => Allmatches(),
           },
   ));
