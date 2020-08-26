@@ -18,7 +18,7 @@ class Matches {
     int count;
     Filters filters;
     List<Match> matches;
-
+    
     factory Matches.fromJson(Map<String, dynamic> json) => Matches(
         count: json["count"],
         filters: Filters.fromJson(json["filters"]),
